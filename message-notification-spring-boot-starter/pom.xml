@@ -50,7 +50,16 @@
       <version>4.4.8</version>
     </dependency>
 
-    <!-- Jackson 相关依赖 -->
+    <!-- 使用旧版钉钉开放api -->
+    <dependency>
+      <groupId>com.aliyun</groupId>
+      <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
+
+
+  <!-- Jackson 相关依赖 -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
