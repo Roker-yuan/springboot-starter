@@ -6,4 +6,6 @@
   <version>1.0-SNAPSHOT</version>
   <name>Archetype - springboot-starter</name>
   <url>http://maven.apache.org</url>
+
+
 </project>
