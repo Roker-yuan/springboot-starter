@@ -19,9 +19,7 @@ public class SMSService implements NotificationService {
     public SMSService(SMSProperties properties) {
         DefaultProfile profile = DefaultProfile.getProfile(properties.getRegionId(), properties.getAccessKeyId(), properties.getAccessKeySecret());
         IAcsClient client = new DefaultAcsClient(profile);
-        // set other properties
         this.client = client;
-
     }
 
 
@@ -30,7 +28,7 @@ public class SMSService implements NotificationService {
         SendSmsRequest request = new SendSmsRequest();
         request.setSignName("阿里云短信测试");
         request.setTemplateCode("SMS_154950909");
-        request.setPhoneNumbers("151*********");
+        request.setPhoneNumbers("17346555506");
         request.setTemplateParam("{\"code\":\"1234\"}");
 
         try {
@@ -43,7 +41,18 @@ public class SMSService implements NotificationService {
 
     @Override
     public <T> void sendMessage(T message) {
+        SendSmsRequest request = new SendSmsRequest();
+        request.setSignName("阿里云短信测试");
+        request.setTemplateCode("SMS_154950909");
+        request.setPhoneNumbers("17346555506");
+        request.setTemplateParam("{\"code\":\"1234\"}");
 
+        try {
+            SendSmsResponse response = client.getAcsResponse(request);
+            log.info(new Gson().toJson(response));
+        }catch (ClientException e) {
+            log.error("ErrCode:{},ErrMsg:{},RequestId:{}",e.getErrCode(),e.getErrMsg(),e.getRequestId());
+        }
     }
 }
 
